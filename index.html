@@ -24,7 +24,7 @@
         <div style="width: 10vw;">
             Método:
         </div>
-        <div style="width: 30vw;">
+        <div style="width: 40vw;">
             <select name="metodo" id="metodo">
                 <option value="push">push o Agregar elemento al final</option>
                 <option value="unshift">unshift o Agregar elemento al inicio</option>
@@ -35,10 +35,10 @@
                 <option value="filter">filter para obtener un nuevo arreglo con los elementos buscados</option>
             </select>
         </div>
-        <div style="width: 10vw;">
+        <div style="width: 20vw;">
             <input id="parametro" placeholder="Parámetro del método"/>
         </div>
-        <div style="width: 20vw;">
+        <div style="width: 40vw;">
             <button onclick="ejecutaMetodo()">Ejecutar operación</button>
         </div>
     </div>
@@ -64,6 +64,24 @@
             if (metodo == 'push') {
                 arregloOriginal.push(parametro);
                 mostrarArreglo(arregloOriginal.toString());
+            } else if (metodo == 'unshift') {
+                arregloOriginal.unshift(parametro);
+                mostrarArreglo(arregloOriginal.toString());
+            } else if (metodo == 'pop') {
+                arregloOriginal.pop();
+                mostrarArreglo(arregloOriginal.toString());
+            } else if (metodo == 'shift') {
+                arregloOriginal.shift();
+                mostrarArreglo(arregloOriginal.toString());
+            } else if (metodo == 'includes') {
+                const existe = arregloOriginal.includes(parametro);
+                mostrarArreglo(existe);
+            } else if (metodo == 'findIndex') {
+                const posicion = arregloOriginal.findIndex((e) => e === parametro);
+                mostrarArreglo(posicion);
+            } else if (metodo == 'filter') {
+                const arregloFiltrado = arregloOriginal.filter((e) => e === parametro);
+                mostrarArreglo(arregloFiltrado);
             }
         }
 
