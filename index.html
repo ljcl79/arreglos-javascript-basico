@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            height: 5vh;;
+        }
+    </style>
+</head>
+<body>
+    <div style="display:flex">
+        <div style="width: 10vw;">
+            Arreglo original:
+        </div>
+        <div id="original" style="width: 30vw;">
+    
+        </div>
+    </div>
+    <div style="display:flex">
+        <div style="width: 10vw;">
+            Método:
+        </div>
+        <div style="width: 30vw;">
+            <select name="metodo" id="metodo">
+                <option value="push">push o Agregar elemento al final</option>
+                <option value="unshift">unshift o Agregar elemento al inicio</option>
+                <option value="pop">pop o Eliminar elemento al final</option>
+                <option value="shift">shift o Eliminar elemento al inicio</option>
+                <option value="includes">includes para saber si existe un elemento dentro de arreglo</option>
+                <option value="findIndex">findIndex para saber la posición de un elemento</option>
+                <option value="filter">filter para obtener un nuevo arreglo con los elementos buscados</option>
+            </select>
+        </div>
+        <div style="width: 10vw;">
+            <input id="parametro" placeholder="Parámetro del método"/>
+        </div>
+        <div style="width: 20vw;">
+            <button onclick="ejecutaMetodo()">Ejecutar operación</button>
+        </div>
+    </div>
+    <div style="display:flex">
+        <div style="width: 10vw;">
+            Resultado:
+        </div>
+        <div id="resultado" style="width: 30vw;">
+    
+        </div>
+    </div>
+    <script>
+        const arregloOriginal = ['🍔','🍕','🌮','🍗','🍧','🎂','🍪','🎂','🍮'];
+
+        function mostrarArreglo(valor) {
+            document.querySelector('#resultado').innerHTML = valor;
+        }
+
+        function ejecutaMetodo() {
+            const metodo = document.querySelector('#metodo').value;
+            const parametro = document.querySelector('#parametro').value;
+            
+            if (metodo == 'push') {
+                arregloOriginal.push(parametro);
+                mostrarArreglo(arregloOriginal.toString());
+            }
+        }
+
+        document.querySelector('#original').innerHTML = arregloOriginal.toString();
+    </script>
+</body>
+</html>
